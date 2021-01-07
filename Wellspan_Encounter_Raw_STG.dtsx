@@ -1,0 +1,836 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/5/2020 6:12:29 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HTNABYE8166B"
+  DTS:CreatorName="HCA\BYE8166"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{6A8906E5-75D4-4FC3-8BFE-1F97F6A53B36}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1900.63"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Wellspan_Encounter_Raw_STG"
+  DTS:VersionGUID="{03692E9E-8810-4994-A46C-68EC080ECAB5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FF63532B-F2B2-4C76-8F3F-02C4E781B254}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=HTNAWDDBSSBX13.hcadev.corpaddev.net;Initial Catalog=WELLSPAN_MDM;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{AED6F71D-9382-4AC1-AACD-A0953C931E14}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\corpdpt08\hpgshare\Clinical Services\Clinical Informatics\Wellspan\WellSpanHealth_Encounter_10022020.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Encounter_Number"
+              DTS:DTSID="{CABDB5BC-44EB-4ED8-87CD-83CED9487DDF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Deidentified_Medical_Record_Number"
+              DTS:DTSID="{1B806E74-2E9B-4FD5-A036-699180021AD1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Birth_Date"
+              DTS:DTSID="{09C00D6D-A8AC-44E4-AC08-A2870A104C51}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Admission_Date"
+              DTS:DTSID="{A1A69FD0-FB32-4D0C-B58D-F14398CC499C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Discharge_Date"
+              DTS:DTSID="{31CB4AE5-1077-4315-B195-24CD2CA611AA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Length_of_Stay"
+              DTS:DTSID="{28D6F40C-1474-4989-9687-CA5C9F2B4983}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MS-DRG"
+              DTS:DTSID="{DC6AAF0F-7E66-42F4-889F-224759C4B9E8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ICD-10 Procedure Name"
+              DTS:DTSID="{961B59BC-E45A-4D29-9C83-E3B001566113}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ICD-10 Procedure Description"
+              DTS:DTSID="{972331F3-22F7-41DC-A5AB-7CC380632C69}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ICD-10 Diagnosis Code"
+              DTS:DTSID="{F5FF1399-CFED-48CF-9A54-D776A6F06EC9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ICD-10 Diagnosis Description"
+              DTS:DTSID="{DA4F5E50-1932-4984-BA33-121023B7162D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{72DAB9BB-99B0-43F5-9F8C-7C735F7EF65A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task 1\Destination - Encounter"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - Encounter"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Encounter]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Destination - Encounter.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].Columns[Encounter_Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Encounter_Number"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[Encounter_Number]"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Encounter_Number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].Columns[Deidentified_Medical_Record_Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Deidentified_Medical_Record_Number"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[Deidentified_Medical_Record_Number]"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Deidentified_Medical_Record_Number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].Columns[Birth_Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Birth_Date"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[Birth_Date]"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Birth_Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].Columns[Admission_Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Admission_Date"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[Admission_Date]"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Admission_Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].Columns[Discharge_Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Discharge_Date"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[Discharge_Date]"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Discharge_Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].Columns[Length_of_Stay]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Length_of_Stay"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[Length_of_Stay]"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Length_of_Stay]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].Columns[MS-DRG]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="MS-DRG"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[MS-DRG]"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[MS-DRG]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].Columns[ICD-10 Procedure Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ICD-10 Procedure Name"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[ICD-10 Procedure Name]"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[ICD-10 Procedure Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].Columns[ICD-10 Procedure Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ICD-10 Procedure Description"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[ICD-10 Procedure Description]"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[ICD-10 Procedure Description]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].Columns[ICD-10 Diagnosis Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ICD-10 Diagnosis Code"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[ICD-10 Diagnosis Code]"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[ICD-10 Diagnosis Code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].Columns[ICD-10 Diagnosis Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ICD-10 Diagnosis Description"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[ICD-10 Diagnosis Description]"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[ICD-10 Diagnosis Description]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[Encounter_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Encounter_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[Deidentified_Medical_Record_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Deidentified_Medical_Record_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[Birth_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Birth_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[Admission_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Admission_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[Discharge_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Discharge_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[Length_of_Stay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Length_of_Stay" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[MS-DRG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="MS-DRG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[ICD-10 Procedure Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ICD-10 Procedure Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[ICD-10 Procedure Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ICD-10 Procedure Description" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[ICD-10 Diagnosis Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ICD-10 Diagnosis Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input].ExternalColumns[ICD-10 Diagnosis Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ICD-10 Diagnosis Description" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Destination - Encounter.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - Encounter.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Destination - Encounter.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Destination - Encounter.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source - WellSpanHealth_Encounter_10022020_txt"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Encounter_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[Encounter_Number]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Encounter_Number]"
+                      name="Encounter_Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Deidentified_Medical_Record_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[Deidentified_Medical_Record_Number]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Deidentified_Medical_Record_Number]"
+                      name="Deidentified_Medical_Record_Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Birth_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[Birth_Date]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Birth_Date]"
+                      name="Birth_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Admission_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[Admission_Date]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Admission_Date]"
+                      name="Admission_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Discharge_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[Discharge_Date]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Discharge_Date]"
+                      name="Discharge_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Length_of_Stay]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[Length_of_Stay]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[Length_of_Stay]"
+                      name="Length_of_Stay"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[MS-DRG]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[MS-DRG]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[MS-DRG]"
+                      name="MS-DRG"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[ICD-10 Procedure Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[ICD-10 Procedure Name]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[ICD-10 Procedure Name]"
+                      name="ICD-10 Procedure Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[ICD-10 Procedure Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[ICD-10 Procedure Description]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[ICD-10 Procedure Description]"
+                      name="ICD-10 Procedure Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[ICD-10 Diagnosis Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[ICD-10 Diagnosis Code]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[ICD-10 Diagnosis Code]"
+                      name="ICD-10 Diagnosis Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[ICD-10 Diagnosis Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[ICD-10 Diagnosis Description]"
+                      length="255"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].Columns[ICD-10 Diagnosis Description]"
+                      name="ICD-10 Diagnosis Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[Encounter_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Encounter_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[Deidentified_Medical_Record_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Deidentified_Medical_Record_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[Birth_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Birth_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[Admission_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Admission_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[Discharge_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Discharge_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[Length_of_Stay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Length_of_Stay" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[MS-DRG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="MS-DRG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[ICD-10 Procedure Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ICD-10 Procedure Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[ICD-10 Procedure Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ICD-10 Procedure Description" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[ICD-10 Diagnosis Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ICD-10 Diagnosis Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output].ExternalColumns[ICD-10 Diagnosis Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ICD-10 Diagnosis Description" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task 1.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task 1\Destination - Encounter.Inputs[Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task 1\Source - WellSpanHealth_Encounter_10022020_txt.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Preparation SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{319CDAF8-A6AB-4CEE-8762-F397FB6ADF81}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Preparation SQL Task 1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FF63532B-F2B2-4C76-8F3F-02C4E781B254}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[Encounter] (&#xA;[Encounter_Number] varchar(255),&#xA;[Deidentified_Medical_Record_Number] varchar(255),&#xA;[Birth_Date] varchar(255),&#xA;[Admission_Date] varchar(255),&#xA;[Discharge_Date] varchar(255),&#xA;[Length_of_Stay] varchar(255),&#xA;[MS-DRG] varchar(255),&#xA;[ICD-10 Procedure Name] varchar(255),&#xA;[ICD-10 Procedure Description] varchar(255),&#xA;[ICD-10 Diagnosis Code] varchar(255),&#xA;[ICD-10 Diagnosis Description] varchar(255), [Batch_Period] varchar(14)&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{356F51F5-2E39-44E6-8EF4-6A53FABDD0FE\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{97CC1B45-4643-4665-B96F-84FBFB1BD8C6}"
+      DTS:From="Package\Preparation SQL Task 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{97CC1B45-4643-4665-B96F-84FBFB1BD8C6}"
+      DTS:To="Package\Data Flow Task 1" />
+  </DTS:PrecedenceConstraints>
+</DTS:Executable>

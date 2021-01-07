@@ -1,0 +1,1030 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/5/2020 6:20:44 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HTNABYE8166B"
+  DTS:CreatorName="HCA\BYE8166"
+  DTS:Description="SSIS Package Description"
+  DTS:DTSID="{07518FDA-DE9B-48D5-AF5D-764F4944A999}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="1033"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="Wellspan_Implant_Raw_STG"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{B7C488F2-2714-4A1A-A85E-9FE670028B06}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7AA2128E-8387-427F-87AB-BD8B48556127}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=HTNAWDDBSSBX13.hcadev.corpaddev.net;Initial Catalog=WELLSPAN_MDM;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{C080105C-9503-4C18-8531-2C42B5B2CB40}"
+      DTS:ObjectName="SourceConnectionFlatFile">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::SourceFileFolderPath]+ @[$Project::ImplantFileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\corpdpt08\hpgshare\Clinical Services\Clinical Informatics\Wellspan\WellSpanHealth_Implant_12212020.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Encounter_Number"
+              DTS:DTSID="{66331BA2-DE9F-4220-A938-9CAECFB6239B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Manufacture_Catalog #"
+              DTS:DTSID="{A315311A-3F5B-44A3-9CCE-19652BE08D2C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Manufacture_Name"
+              DTS:DTSID="{46CA72DD-99FF-43B3-93A2-862DA823798E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Manufacture_Item_Description"
+              DTS:DTSID="{82EA22BC-5EF7-422C-871A-D23A4A47E8FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Unit_Of_Measure"
+              DTS:DTSID="{A5AC249A-89C8-415D-BE96-F6BFDAEB413E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Packaging_String"
+              DTS:DTSID="{2689EEB3-AAC6-4628-9FAC-A3879A912470}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Total Purchase_Quantity"
+              DTS:DTSID="{32AD9E54-752E-4A48-8201-B277F71BDA36}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Each_Unit_Cost"
+              DTS:DTSID="{FE544053-6A59-4C85-80F9-E7DC32EB6471}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Total_Spend_Per_Item"
+              DTS:DTSID="{56165E10-05CC-4985-BDB5-A205B709ED30}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PO_Number"
+              DTS:DTSID="{63A24201-7BD9-456D-A1A4-58ECA2CBDB22}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PO_Date"
+              DTS:DTSID="{C7B74457-932D-44EB-A6B1-0410FB37D337}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LOG_ID"
+              DTS:DTSID="{E5534AA1-43EB-472C-94EF-2CEE78B39E24}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Surgery_Date"
+              DTS:DTSID="{54AAFA93-0044-4940-9B36-BFFE695DE600}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:Description="ImplantFileName variable value"
+      DTS:DTSID="{1BBA0C2F-5083-4CE8-AFC6-042674CD4B3D}"
+      DTS:ObjectName="ImplantFileName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create Implant Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Disabled="True"
+      DTS:DTSID="{E3E3CA4F-C3EA-4ADE-8AAF-72E98812B4BE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Implant Tables"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7AA2128E-8387-427F-87AB-BD8B48556127}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[Implant] (&#xA;[Encounter_Number] varchar(255),&#xA;[Manufacture_Catalog #] varchar(255),&#xA;[Manufacture_Name] varchar(255),&#xA;[Manufacture_Item_Description] varchar(255),&#xA;[Unit_Of_Measure] varchar(255),&#xA;[Packaging_String] varchar(255),&#xA;[Total Purchase_Quantity] varchar(255),&#xA;[Each_Unit_Cost] varchar(255),&#xA;[Total_Spend_Per_Item] varchar(255),&#xA;[PO_Number] varchar(255),&#xA;[PO_Date] varchar(255),&#xA;[LOG_ID] varchar(255),&#xA;[Surgery_Date] varchar(255), [Batch_Period] varchar(14)&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import Implant Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{CB93E715-9C22-4925-9AF5-9F6173F43404}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Implant Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Import Implant Data\Destination - Implant"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - Implant"
+              usesDispositions="true"
+              validateExternalMetadata="False"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Implant]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import Implant Data\Destination - Implant.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].Columns[Encounter_Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Encounter_Number"
+                      externalMetadataColumnId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Encounter_Number]"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Encounter_Number]" />
+                    <inputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].Columns[Manufacture_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Manufacture_Name"
+                      externalMetadataColumnId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Manufacture_Name]"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Manufacture_Name]" />
+                    <inputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].Columns[Manufacture_Item_Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Manufacture_Item_Description"
+                      externalMetadataColumnId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Manufacture_Item_Description]"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Manufacture_Item_Description]" />
+                    <inputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].Columns[Unit_Of_Measure]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Unit_Of_Measure"
+                      externalMetadataColumnId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Unit_Of_Measure]"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Unit_Of_Measure]" />
+                    <inputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].Columns[Packaging_String]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Packaging_String"
+                      externalMetadataColumnId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Packaging_String]"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Packaging_String]" />
+                    <inputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].Columns[Total Purchase_Quantity]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Total Purchase_Quantity"
+                      externalMetadataColumnId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Total Purchase_Quantity]"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Total Purchase_Quantity]" />
+                    <inputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].Columns[Each_Unit_Cost]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Each_Unit_Cost"
+                      externalMetadataColumnId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Each_Unit_Cost]"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Each_Unit_Cost]" />
+                    <inputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].Columns[Total_Spend_Per_Item]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Total_Spend_Per_Item"
+                      externalMetadataColumnId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Total_Spend_Per_Item]"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Total_Spend_Per_Item]" />
+                    <inputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].Columns[PO_Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="PO_Number"
+                      externalMetadataColumnId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[PO_Number]"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[PO_Number]" />
+                    <inputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].Columns[PO_Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="PO_Date"
+                      externalMetadataColumnId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[PO_Date]"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[PO_Date]" />
+                    <inputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].Columns[LOG_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="LOG_ID"
+                      externalMetadataColumnId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[LOG_ID]"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[LOG_ID]" />
+                    <inputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].Columns[Surgery_Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Surgery_Date"
+                      externalMetadataColumnId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Surgery_Date]"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Surgery_Date]" />
+                    <inputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].Columns[Manufacture_Catalog #]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Manufacture_Catalog #"
+                      externalMetadataColumnId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Manufacture_Catalog_Number]"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Manufacture_Catalog #]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Encounter_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Encounter_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Manufacture_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Manufacture_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Manufacture_Item_Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1000"
+                      name="Manufacture_Item_Description" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Unit_Of_Measure]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Unit_Of_Measure" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Packaging_String]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Packaging_String" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Total Purchase_Quantity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Total Purchase_Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Each_Unit_Cost]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Each_Unit_Cost" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Total_Spend_Per_Item]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Total_Spend_Per_Item" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[PO_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="PO_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[PO_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="PO_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[LOG_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="LOG_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Surgery_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Surgery_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Manufacture_Catalog_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Manufacture_Catalog_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[Batch_Period]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="Batch_Period" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input].ExternalColumns[implant_row_id]"
+                      dataType="i4"
+                      name="implant_row_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import Implant Data\Destination - Implant.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Implant Data\Destination - Implant.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Implant Data\Destination - Implant.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Implant Data\Destination - Implant.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Implant Data\Source File"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Source File"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import Implant Data\Source File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionFlatFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Encounter_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Encounter_Number]"
+                      length="255"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Encounter_Number]"
+                      name="Encounter_Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Manufacture_Catalog #]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Manufacture_Catalog #]"
+                      length="255"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Manufacture_Catalog #]"
+                      name="Manufacture_Catalog #"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Manufacture_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Manufacture_Name]"
+                      length="255"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Manufacture_Name]"
+                      name="Manufacture_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Manufacture_Item_Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Manufacture_Item_Description]"
+                      length="255"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Manufacture_Item_Description]"
+                      name="Manufacture_Item_Description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Unit_Of_Measure]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Unit_Of_Measure]"
+                      length="255"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Unit_Of_Measure]"
+                      name="Unit_Of_Measure"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Packaging_String]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Packaging_String]"
+                      length="255"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Packaging_String]"
+                      name="Packaging_String"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Total Purchase_Quantity]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Total Purchase_Quantity]"
+                      length="255"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Total Purchase_Quantity]"
+                      name="Total Purchase_Quantity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Each_Unit_Cost]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Each_Unit_Cost]"
+                      length="255"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Each_Unit_Cost]"
+                      name="Each_Unit_Cost"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Total_Spend_Per_Item]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Total_Spend_Per_Item]"
+                      length="255"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Total_Spend_Per_Item]"
+                      name="Total_Spend_Per_Item"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[PO_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[PO_Number]"
+                      length="255"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[PO_Number]"
+                      name="PO_Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[PO_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[PO_Date]"
+                      length="255"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[PO_Date]"
+                      name="PO_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[LOG_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[LOG_ID]"
+                      length="255"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[LOG_ID]"
+                      name="LOG_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Surgery_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Surgery_Date]"
+                      length="255"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].Columns[Surgery_Date]"
+                      name="Surgery_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Encounter_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Encounter_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Manufacture_Catalog #]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Manufacture_Catalog #" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Manufacture_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Manufacture_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Manufacture_Item_Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Manufacture_Item_Description" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Unit_Of_Measure]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Unit_Of_Measure" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Packaging_String]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Packaging_String" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Total Purchase_Quantity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Total Purchase_Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Each_Unit_Cost]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Each_Unit_Cost" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Total_Spend_Per_Item]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Total_Spend_Per_Item" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[PO_Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="PO_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[PO_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="PO_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[LOG_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="LOG_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output].ExternalColumns[Surgery_Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Surgery_Date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Implant Data\Source File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Implant Data\Source File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import Implant Data.Paths[Flat File Source Output]"
+              endId="Package\Import Implant Data\Destination - Implant.Inputs[Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Import Implant Data\Source File.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Import Implant Data"
+          TopLeft="40,84.5" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Create Implant Tables"
+          TopLeft="40.5,8.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import Implant Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Import Implant Data\Source File"
+          TopLeft="95.5,6.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Import Implant Data\Destination - Implant"
+          TopLeft="74,107.5" />
+        <EdgeLayout
+          Id="Package\Import Implant Data.Paths[Flat File Source Output]"
+          TopLeft="163.5,48.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Implant Data\Destination - Implant">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

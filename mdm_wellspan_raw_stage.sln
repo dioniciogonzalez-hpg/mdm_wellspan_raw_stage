@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30330.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "mdm_wellspan_raw_stage", "mdm_wellspan_raw_stage.dtproj", "{E790776C-49C2-4687-B3E0-B49E47C6356F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E790776C-49C2-4687-B3E0-B49E47C6356F}.Development|Default.ActiveCfg = Development
+		{E790776C-49C2-4687-B3E0-B49E47C6356F}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C0D1BC6-B118-43BD-821A-5788EFE5875C}
+	EndGlobalSection
+EndGlobal
